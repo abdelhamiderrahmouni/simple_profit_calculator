@@ -5,6 +5,7 @@ int main()
     int capital = 6;
     int product_price = 6;
     int profit = 0;
+    int total_products_sold = 0;
     int iterations = 0;
 
     while (capital < 60)
@@ -12,11 +13,12 @@ int main()
         // Check if there's enough profit to buy a product
         if (profit >= product_price)
         {
-            int num_products = profit / product_price;
-            capital += num_products * product_price;  // Use the profit to buy products
+            int num_products_bought = profit / product_price;
+            capital += num_products_bought * product_price;  // Use the profit to buy products
+            total_products_sold += num_products_bought;  // Accumulate the number of products sold
             profit %= product_price;  // Update profit after buying products
 
-            printf("Iteration: %d - Bought %d products.\n", iterations, num_products);
+            printf("Iteration: %d - Bought %d products.\n", iterations, num_products_bought);
         }
         else
         {
@@ -27,6 +29,7 @@ int main()
 
         iterations++;
 
+        printf("Products Sold So Far: %d\n", total_products_sold);
         printf("Profit: %d\n", profit);
         printf("Capital: %d\n", capital);
         printf("-----------------------------\n\n");
@@ -36,6 +39,7 @@ int main()
     printf("Iterations: %d\n", iterations);
     printf("Final Profit: %d\n", profit);
     printf("Final Capital: %d\n", capital);
+    printf("Total Products Sold: %d\n", total_products_sold);
 
     return 0;
 }
