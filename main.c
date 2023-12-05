@@ -2,14 +2,16 @@
 
 int main()
 {
-    int capital = 6;
-    int product_price = 6;
+    int capital = 10;
+    int wanted_capital = 100;
+    int product_price = 8;
     int profit = 0;
-    int profit_to_gain = 2;
+    int profit_to_gain = 3;
     int total_products_to_sell = capital / product_price;
+    int total_products_sold = 0;
     int iterations = 1;
 
-    while (capital < 60)
+    while (capital < wanted_capital)
     {
         // Check if there's enough profit to buy a product
         if (profit >= product_price)
@@ -29,18 +31,20 @@ int main()
         }
 
         iterations++;
+        total_products_sold += total_products_to_sell;
 
         printf("Total Products to sell: %d\n", total_products_to_sell);
+        printf("Total Products sold: %d\n", total_products_sold);
         printf("Profit: %d\n", profit);
         printf("Capital: %d\n", capital);
         printf("-----------------------------\n\n");
     }
 
     printf("Final result:\n");
-    printf("Iterations: %d\n", iterations);
+    printf("Iterations: %d\n", iterations - 1);
     printf("Final Profit: %d\n", profit);
     printf("Final Capital: %d\n", capital);
-    printf("Total Products Sold: %d\n", total_products_to_sell);
+    printf("Total Products Sold: %d\n", total_products_sold);
 
     return 0;
 }
