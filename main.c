@@ -16,18 +16,17 @@ int main()
             capital += num_products * product_price;  // Use the profit to buy products
             profit %= product_price;  // Update profit after buying products
 
-            printf("Bought %d products.\n", num_products);
+            printf("Iteration: %d - Bought %d products.\n", iterations, num_products);
         }
         else
         {
             // If there's not enough profit to buy a product, generate more profit
             profit += 2 * (capital / product_price);
-            printf("Generated more profit.\n");
+            printf("Iteration: %d - Generated more profit.\n", iterations);
         }
 
         iterations++;
 
-        printf("Iteration: %d\n", iterations);
         printf("Profit: %d\n", profit);
         printf("Capital: %d\n", capital);
         printf("-----------------------------\n\n");
